@@ -1,0 +1,53 @@
+
+:root{
+    --cream-color: #ddd;
+    --dark-color: #252525;
+    --green-color: #0d5a48;
+    --violet-color: #6709a9;
+}
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding: 10rem;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url(/public/images/fondo1.jpg);
+    background-position: center;
+}
+
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    filter: blur(8px);
+}
+
+.containerBody{
+    min-height: 100dvh;
+    font-size: .78rem;
+    display: grid;
+    grid-template-rows: auto auto 1fr 1fr 1fr auto auto;
+    scroll-behavior: smooth;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px;
+}
+
+
+

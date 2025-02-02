@@ -1,0 +1,49 @@
+---
+import Header from '../components/Header.astro'
+import Section from '../components/Section.astro'
+
+import Aside from '../components/Aside.astro'
+import Contact from '../components/Contacto.astro'
+
+import Footer from '../components/Footer.astro'
+import Carrusel from '../components/CarruselImage.astro'
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/styles/index.css">
+    <link rel="icon" href="/public/images/logo.ico">
+    <title>Season Harvest</title>
+</head>
+<body>
+
+    <div id="inicio" class="containerBody">
+        
+        <Header />
+
+        <Section
+            color="#fff"
+            titulo="Bienvenido a Season Harvest"
+            texto="En Season Harvest, nos especializamos en la distribución de frutas, verduras e insumos esenciales para cocinas de restaurantes y hoteles. Nuestro compromiso es ofrecer productos de primera calidad con un servicio eficiente y entregas siempre puntuales."
+            texto2="Sabemos que en la industria gastronómica, la frescura y la disponibilidad de los ingredientes marcan la diferencia. Por eso, contamos con una logística ágil y confiable, asegurando que cada pedido llegue a tiempo y en las mejores condiciones."
+            texto3="Confía en Season Harvest como tu proveedor estratégico y garantiza el abastecimiento de tu cocina con productos seleccionados y un servicio de excelencia. ¡Contáctanos y descubre la diferencia!"
+            imagen="/public/images/delivery.jpg"
+            altImg="Fondo1"
+        />
+        
+        <Carrusel />
+
+        <Aside />
+        
+        <Contact />
+        
+        <Footer />
+
+        
+
+    </div>
+</body>
+</html>

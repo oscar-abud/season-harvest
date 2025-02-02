@@ -1,0 +1,22 @@
+---
+const {title, text, text2, text3, img, altImg} = Astro.props;
+---
+
+<link rel="stylesheet" href="/public/styles/section.css">
+
+<div class="containerSection">
+
+    <div class="containerSection-left">
+        <h1>{title}</h1>
+
+        <p>{text}</p>
+        <p>{text2}</p>
+        <p>{text3}</p>
+
+    </div>
+
+    <div class="containerSection-right" >
+        <img class="img-bg" src={img} alt={altImg} />
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+.icon{
+    width: 30px;
+    color: #0d5a48;
+}
+
+.github{
+    width: 20px;
+    color: #1a1a1a;
+    transition: ease-in-out .3s;
+}

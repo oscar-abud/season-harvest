@@ -1,0 +1,22 @@
+---
+import CardSection from '../components/CardSection.astro'
+
+const {color} = Astro.props;
+
+//Variables del componente CardSection
+const {titulo, texto, texto2, texto3, imagen, altImg} = Astro.props;
+
+---
+
+<link rel="stylesheet" href="/public/styles/section.css">
+
+<section style={`background-color: ${color};`}>
+    <CardSection
+        title={titulo}
+        text={texto}
+        text2={texto2}
+        text3={texto3}
+        img={imagen}
+        altImg={altImg}
+    />
+</section>

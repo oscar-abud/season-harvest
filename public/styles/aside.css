@@ -1,0 +1,52 @@
+
+:root{
+    --white-color: #fff;
+    --cream-color: #eee;
+    --dark-color: #252525;
+    --green-color: #0d5a48;
+    --violet-color: #6709a9;
+}
+
+aside{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: center;
+    padding-top: 80px;
+    justify-content: space-evenly;
+    background-color: var(--white-color);
+    position: relative;
+    z-index: 2;
+}
+
+aside::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient( var(--white-color), var(--cream-color), var(--cream-color));
+    /*background-image: url(/public/images/fondo1.jpg);
+    background-position: center;
+    background-size: contain;
+    filter: blur(8px);*/
+}
+
+@media (max-width: 700px){
+    aside{
+        padding: 20px 0;
+    }
+}
+
+.acercaDe{
+    position: absolute;
+    display: grid;
+    place-items: center;
+    margin: 20px 0;
+    font-weight: 800;
+    color: var(--green-color);
+    font-size: 35px;
+    z-index: 2;
+}

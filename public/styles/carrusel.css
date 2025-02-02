@@ -1,0 +1,109 @@
+:root{
+    --white-color: #fff;
+    --cream-color: #f1f5f9;
+    --dark-color: #1a1a1a;
+    --green-color: #0d5a48;
+    --yellow-color: #f4b727;
+    --mustard-color: #ef9a18;
+}
+
+.containerCarrusel{
+    height: 100%;
+    align-items: center;
+    padding: 20px 3%;
+    /*background-color: #ffffffb7;*/
+    background: linear-gradient(var(--cream-color), var(--white-color), var(--white-color));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerCarrusel h1{
+    text-align: center;
+    font-weight: 800;
+    color: var(--green-color);
+    font-size: 35px;
+}
+
+#contentItemCarrusel{
+    width: 80%;
+    margin: auto;
+    height: 520px;
+    overflow: hidden;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+@media(max-width: 768px){
+    #contentItemCarrusel{
+        width: 100%;
+    }
+}
+
+@media(max-width: 425px){
+    .containerCarrusel{
+        padding: 2px 0;
+    }
+
+}
+
+.itemCarrusel{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.tarjetaCarrusel{
+    height: 100%;
+}
+
+.flechasCarrusel{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 20px;
+}
+
+#tarjetaCarrusel1{
+    background-image: url(/public/images/verduras.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#tarjetaCarrusel2{
+    background-image: url(/public/images/verduras2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#tarjetaCarrusel3{
+    background-image: url(/public/images/frutas.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.flechasCarrusel a{
+    text-decoration: none;
+    color: var(--dark-color);
+    font-size: 45px;
+}
+
+.flechasCarrusel a i{
+    background-color: #ffffff82;
+    border-radius: 15px;
+}
+
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0;
+    }
+    33%, 66% {
+        opacity: 1;
+    }
+}
