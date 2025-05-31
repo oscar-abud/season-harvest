@@ -1,12 +1,17 @@
 ---
-import Nav from '../components/Nav.astro'
+import Nav from "../components/Nav.astro";
 ---
 
-<link rel="stylesheet" href="/public/styles/header.css">
+<link rel="stylesheet" href="/public/styles/header.css" />
 
 <Nav />
 
 <header id="header">
-    <img class="logo" src="/public/images/logo.png" alt="Logo">
+    <img class="logo" src="/public/images/logo.png" alt="Logo" />
 </header>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const header = document.getElementById("header");
+    });
+</script>

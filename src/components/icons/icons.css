@@ -1,10 +1,33 @@
-.icon{
+.icon {
     width: 30px;
     color: #0d5a48;
 }
 
-.github{
+.github,
+.fb,
+.ig {
     width: 20px;
     color: #1a1a1a;
     transition: ease-in-out .3s;
+}
+
+.fb,
+.ig {
+    width: 30px;
+}
+
+.fb {
+    color: rgb(54, 54, 255);
+}
+
+.ig {
+    color: rgb(249, 48, 192);
+}
+
+.verde {
+    color: #0d5a48;
+}
+
+.blanco {
+    color: #fff;
 }

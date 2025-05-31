@@ -1,41 +1,42 @@
-:root{
+:root {
     --white-color: #fff;
-    --cream-color: #f1f5f9;
-    --dark-color: #1a1a1a;
+    --cream-color: #F3F4EF;
+    --dark-color: #252525;
     --green-color: #0d5a48;
+    --violet-color: #6709a9;
     --yellow-color: #f4b727;
     --mustard-color: #ef9a18;
 }
 
-*{
+* {
     margin: 0;
     box-sizing: border-box;
 }
 
-html{
+html {
     scroll-behavior: smooth;
     scroll-padding: 10rem;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 
-.containerBody{
+.containerBody {
     background: linear-gradient(to right, var(--mustard-color), var(--yellow-color), var(--yellow-color), var(--yellow-color));
     width: 100%;
 }
 
-@media(max-width: 1327px){
-    .containerBody{
+@media(max-width: 1327px) {
+    .containerBody {
         background: linear-gradient(to bottom, var(--mustard-color), var(--yellow-color), var(--yellow-color), var(--yellow-color), var(--yellow-color));
         width: 100%;
     }
 }
 
-.containerBody-content{
+.containerBody-content {
     padding: 20px 5%;
     height: 100vh;
     display: flex;
@@ -45,11 +46,11 @@ body{
     overflow: hidden;
 }
 
-section{
+section {
     width: auto;
 }
 
-section h1{
+section h1 {
     font-weight: 800;
     font-size: 60px;
     text-align: center;
@@ -57,7 +58,7 @@ section h1{
     color: var(--cream-color);
 }
 
-section p{
+section p {
     margin: 5px 0;
     text-align: left;
     font-weight: 500;
@@ -65,14 +66,14 @@ section p{
     color: var(--dark-color);
 }
 
-section a{
+section a {
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 }
 
-section button{
+section button {
     margin-top: 20px;
     cursor: pointer;
     text-align: center;
@@ -86,54 +87,53 @@ section button{
     transition: ease-in-out .3s;
 }
 
-section button:hover{
+section button:hover {
     color: var(--dark-color);
     background-color: var(--white-color);
 }
 
-aside{
+aside {
     width: auto;
 }
 
-aside img{
+aside img {
     max-width: 512px;
 }
 
-@media(max-width: 690px){
-    .containerBody-content{
+@media(max-width: 690px) {
+    .containerBody-content {
         margin: 0;
         padding: 20px 2%;
         width: 100%;
     }
 
-    aside img{
+    aside img {
         max-width: 312px;
     }
 }
 
-@media(max-width: 1055px){
-    .containerBody-content{
+@media(max-width: 1055px) {
+    .containerBody-content {
         margin: 0;
         padding: 20px 2%;
         width: 100%;
     }
 
-    aside img{
+    aside img {
         width: 412px;
     }
 }
 
-@media(max-width: 425px){
-    section h1{
+@media(max-width: 425px) {
+    section h1 {
         font-size: 50px;
     }
 
-    section p{
+    section p {
         font-size: 17px;
     }
 
-    section button{
+    section button {
         font-size: 18px;
     }
 }
-

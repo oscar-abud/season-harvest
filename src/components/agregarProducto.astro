@@ -1,0 +1,139 @@
+---
+interface Producto {
+    name: string;
+    unit: string;
+    price: number;
+}
+const { products = [] } = Astro.props;
+
+import WspIcon from "../components/icons/wsp";
+---
+
+<div class="agregarProduct">
+    <div class="agregarProduct-header">
+        <h2>Para agregar</h2>
+        <p>
+            Elige y añade los productos extra que desees a tu <span>box</span> favorito.
+        </p>
+    </div>
+    <div class="agregarProduct-body">
+        <div class="column">
+            <ul>
+                {
+                    products.map((item: Producto) => (
+                        <div class="lista">
+                            <li>
+                                {item.name} ( {item.unit} )
+                            </li>
+                            <p>${item.price}</p>
+                        </div>
+                    ))
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="agregarProduct-info">
+        <a
+            href="https://wa.me/+56966177010?text=Hola,%20quisiera%20obtener%20más%20información%20sobre%20cómo%20agregar%20productos%20a%20mi%20box."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <WspIcon />
+            Para mas información.
+        </a>
+    </div>
+</div>
+
+<style>
+    .agregarProduct {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--white-color);
+        border-radius: 1rem;
+        padding: 2rem 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        font-family: sans-serif;
+        color: var(--dark-color);
+        width: 370px;
+        max-width: 700px;
+        margin: 0 auto;
+        height: 460px;
+        justify-content: space-around;
+    }
+
+    .agregarProduct-header h2 {
+        text-align: center;
+    }
+
+    .agregarProduct-header p {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 400;
+        margin: 5px 0;
+        color: var(--dark-color);
+    }
+
+    .agregarProduct-header p span {
+        color: var(--green-color);
+        font-weight: 800;
+    }
+
+    .agregarProduct-body {
+        display: grid;
+        place-items: center;
+    }
+
+    .column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .column ul .lista {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 370px;
+        padding: 0rem 1rem;
+    }
+
+    @media screen and (max-width: 1085px) {
+        .column ul .lista {
+            padding: 0rem 0.5rem;
+        }
+    }
+
+    .column ul .lista li {
+        width: 80%;
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    .column ul .lista p {
+        width: 20%;
+        text-align: justify;
+    }
+
+    .lista p {
+        color: var(--green-color);
+        font-weight: 800;
+        font-size: 17px;
+    }
+
+    .agregarProduct-info a {
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--green-color);
+        font-weight: 600;
+        text-align: justify;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .agregarProduct-info a:hover {
+        scale: 1.03;
+    }
+</style>

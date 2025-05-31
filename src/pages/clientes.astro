@@ -1,0 +1,214 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import IconoWsp from "../components/icons/wsp.jsx";
+import CajaProducto from "../components/boxProduct.astro";
+import AgregarProducto from "../components/agregarProducto.astro";
+
+//Box Familiar
+const boxFamiliar1 = [
+  { amount: "2", unit: "kg", name: "Kiwi" },
+  { amount: "2", unit: "kg", name: "Manzana Roja" },
+  { amount: "2", unit: "kg", name: "Plátano" },
+  { amount: "2", unit: "un", name: "Ajo" },
+  { amount: "2", unit: "kg", name: "Cebolla Blanca" },
+  { amount: "1/4", unit: "kg", name: "Cilantro" },
+  { amount: "1", unit: "un", name: "Lechuga Costina" },
+  { amount: "2", unit: "kg", name: "Limón" },
+  { amount: "1", unit: "kg", name: "Palta" },
+];
+
+const boxFamiliar2 = [
+  { amount: "3", unit: "kg", name: "Papa" },
+  { amount: "1", unit: "un", name: "Pimentón Rojo" },
+  { amount: "1", unit: "un", name: "Pimentón Verde" },
+  { amount: "2", unit: "kg", name: "Tomate" },
+  { amount: "1", unit: "un", name: "Lechuga Escarola" },
+  { amount: "1", unit: "un", name: "Brocoli" },
+  { amount: "1", unit: "kg", name: "Zanahoria" },
+  { amount: "2", unit: "trozos", name: "Zapallo Camote" },
+];
+
+//Box Pareja
+const boxPareja1 = [
+  { amount: "1", unit: "kg", name: "Kiwi" },
+  { amount: "1", unit: "kg", name: "Manzana Roja" },
+  { amount: "1", unit: "kg", name: "Plátano" },
+  { amount: "1", unit: "un", name: "Ajo" },
+  { amount: "1", unit: "kg", name: "Cebolla Blanca" },
+  { amount: "1/4", unit: "kg", name: "Cilantro" },
+  { amount: "1", unit: "un", name: "Lechuga Costina" },
+  { amount: "1", unit: "kg", name: "Limón" },
+];
+
+const boxPareja2 = [
+  { amount: "1", unit: "kg", name: "Palta" },
+  { amount: "2", unit: "kg", name: "Papa" },
+  { amount: "1", unit: "un", name: "Pimentón Rojo" },
+  { amount: "1", unit: "un", name: "Pimentón Verde" },
+  { amount: "1", unit: "kg", name: "Tomate" },
+  { amount: "1/2", unit: "kg", name: "Zanahoria" },
+  { amount: "1", unit: "trozo", name: "Zapallo Camote" },
+];
+
+//Box Individual
+const boxIndividual1 = [
+  { amount: "1/2", unit: "kg", name: "Kiwi" },
+  { amount: "1/2", unit: "kg", name: "Manzana Roja" },
+  { amount: "1/2", unit: "kg", name: "Plátano" },
+  { amount: "1", unit: "un", name: "Ajo" },
+  { amount: "1/2", unit: "kg", name: "Cebolla Blanca" },
+  { amount: "1/4", unit: "kg", name: "Cilantro" },
+  { amount: "1", unit: "un", name: "Lechuga Costina" },
+  { amount: "1/2", unit: "kg", name: "Limón" },
+];
+
+const boxIndividual2 = [
+  { amount: "1/2", unit: "kg", name: "Palta" },
+  { amount: "1", unit: "kg", name: "Papa" },
+  { amount: "1", unit: "un", name: "Pimentón Rojo" },
+  { amount: "1", unit: "un", name: "Pimentón Verde" },
+  { amount: "1/2", unit: "kg", name: "Tomate" },
+  { amount: "1/2", unit: "kg", name: "Zanahoria" },
+  { amount: "1", unit: "trozo", name: "Zapallo Camote" },
+];
+
+// Para agregar productos aparte a las cajas
+const productos = [
+  { name: "Ajo de Cabeza", unit: "un", price: 390 },
+  { name: "Albahaca", unit: "60 gr", price: 1290 },
+  { name: "Mata de apio", unit: "un", price: 1990 },
+  { name: "Berenjena", unit: "un", price: 890 },
+  { name: "Betarraga", unit: "3 un", price: 1590 },
+  { name: "Brócoli", unit: "un", price: 1990 },
+  { name: "Bruselas", unit: "500 gr", price: 2990 },
+  { name: "Cebolla Morada", unit: "kg", price: 1990 },
+  { name: "Cebollín", unit: "3 un", price: 1490 },
+  { name: "Choclo", unit: "3 un", price: 2490 },
+  { name: "Ciboulette", unit: "un", price: 490 },
+  { name: "Cilantro", unit: "200 gr", price: 1490 },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="Sección de clientes"
+      content="Productos de Verduleria y fruteria Season Harvest para nuestros clientes"
+    />
+    <link rel="icon" href="/public/images/logo.ico" />
+    <link rel="stylesheet" href="/public/styles/indexClientes.css" />
+    <title>Productos para clientes</title>
+  </head>
+  <body>
+    <div id="inicio" class="containerBody">
+      <Header />
+
+      <div class="containerClientes">
+        <h1>Productos Clientes</h1>
+        <div class="containerProductos">
+          <!-- Caja Familiar -->
+          <CajaProducto
+            title="Box Familiar"
+            tipoBox="familiar"
+            precio="43.990"
+            productos={boxFamiliar1}
+            productos2={boxFamiliar2}
+          />
+          <!-- Caja pareja -->
+          <CajaProducto
+            title="Box Pareja"
+            tipoBox="pareja"
+            precio="29.990"
+            productos={boxPareja1}
+            productos2={boxPareja2}
+          />
+          <!-- Caja Individual -->
+          <CajaProducto
+            title="Box Individual"
+            tipoBox="individual"
+            precio="22.990"
+            productos={boxIndividual1}
+            productos2={boxIndividual2}
+          />
+          <!-- Tarjeta para agregar mas productos -->
+          <AgregarProducto products={productos} />
+        </div>
+      </div>
+
+      <div class="containerMapa">
+        <div class="header">
+          <h1>Mapa de despachos</h1>
+        </div>
+
+        <div class="mapa">
+          <!-- Imagen del mapa de santiago -->
+        </div>
+
+        <div class="containerInfoMapa">
+          <!-- Informacion del precio segun ruta -->
+          <!-- Contenedor header -->
+          <div class="containerInfoMapa-header">
+            <h1>Valores despachos</h1>
+          </div>
+
+          <!-- Contenedor de la tabla de precios -->
+          <div class="containerInfoMapa-body">
+            <div class="containerInfoMapa-body-izq">
+              <div class="containerBody-izq-p">
+                <p>Pedidos se reciben toda la semana.</p>
+                <p>Despachos <span>sólo los viernes.</span></p>
+              </div>
+              <div class="containerBody-izq-wsp">
+                <IconoWsp />
+                <div class="containerBody-izq-link-wsp">
+                  <a
+                    href="https://wa.me/+56966177010"
+                    target="_blank"
+                    rel="noopener noreferrer">+56 9 6617 7010</a
+                  >
+                  <a
+                    href="https://wa.me/+56966845560"
+                    target="_blank"
+                    rel="noopener noreferrer">+56 9 6684 5560</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="containerInfoMapa-body-centro"></div>
+            <div class="containerInfoMapa-body-der">
+              <div class="containerBody-der-valor">
+                <p><span>Dentro</span> de la circunvalación de Vespucio.</p>
+                <div class="containerPrecio">
+                  <p>$2.000</p>
+                </div>
+              </div>
+              <div class="containerBody-der-valor">
+                <p><span>Fuera</span> de la circunvalación de Vespucio.</p>
+                <div class="containerPrecio">
+                  <p>$3.500</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+
+    <script type="module">
+      document.addEventListener("DOMContentLoaded", function () {
+        const e = document.getElementById("check");
+        document.querySelectorAll("nav ul li a").forEach((n) => {
+          n.addEventListener("click", () => {
+            e.checked = !1;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

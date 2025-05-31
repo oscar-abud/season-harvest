@@ -1,12 +1,4 @@
-:root{
-    --white-color: #fff;
-    --cream-color: #f1f5f9;
-    --dark-color: #1a1a1a;
-    --green-color: #0d5a48;
-    --violet-color: #6709a9;
-}
-
-footer{
+footer {
     padding: 10px 0;
     width: 100%;
     display: flex;
@@ -14,23 +6,10 @@ footer{
     border-top: solid .5px rgba(128, 128, 128, 0.248);
     z-index: 1;
     position: relative;
-    background: linear-gradient(var(--cream-color), var(--white-color));
+    background: linear-gradient(to top, var(--white-color) 0%, var(--white-color) 50%, var(--cream-color) 100%);
 }
 
-/*footer::before{
-content: '';
-position: absolute;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-background-position: center;
-background-size: contain;
-background-image: linear-gradient(#f1f5f983, #ffffff92), url(/public/images/fondo1.jpg);
-z-index: -1;
-}*/
-
-.containerFooter-body{
+.containerFooter-body {
     width: 100%;
     height: 100%;
     margin: 20px auto;
@@ -38,19 +17,18 @@ z-index: -1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
 }
 
-.containerFooter-body h1{
-    text-align: center;
-    font-weight: 300;
+.containerFooter-body p {
     font-size: 17px;
-    color: var(--dark-color);
-    opacity: 1;
-    margin-top: 30px;
+    margin: 10px 0px 0px 0px;
+    padding: 5px;
+    text-align: center;
+    opacity: 0.5;
 }
 
-.containerFooter-body a{
+.containerFooter-body a,
+.containerSocial-icons a {
     font-size: 17px;
     color: var(--dark-color);
     text-decoration: none;
@@ -61,6 +39,44 @@ z-index: -1;
     gap: 10px;
 }
 
-.containerFooter-body a:hover{
+.containerFooter-body a:hover,
+.containerSocial-icons a:hover {
     opacity: 1;
+}
+
+/*Contenedor de Iconos*/
+.containerSocial {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.167);
+    padding: 20px 0;
+}
+
+.containerSocial p {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 10px 0;
+    padding: 5px;
+    text-align: center;
+}
+
+.containerSocial-icons {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center
+}
+
+.containerSocial-icons-box {
+    width: 5%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
 }

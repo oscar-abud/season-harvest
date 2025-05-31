@@ -1,0 +1,237 @@
+:root {
+    --white-color: #fff;
+    --cream-color: #F3F4EF;
+    --dark-color: #252525;
+    --green-color: #0d5a48;
+    --violet-color: #6709a9;
+    --yellow-color: #f4b727;
+    --mustard-color: #ef9a18;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding: 5rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url(../images/Fondo4.jpg);
+    background-position: top;
+}
+
+.containerBody {
+    min-height: 100dvh;
+    font-size: .78rem;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px;
+}
+
+/*Productos para el cliente*/
+.containerClientes {
+    text-align: center;
+    height: auto;
+    background: linear-gradient(to bottom, var(--white-color) 0%, var(--white-color) 50%, var(--cream-color) 100%);
+    padding: 10px 5px;
+}
+
+/*Contenedores de productos*/
+.containerProductos {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: .8rem;
+    margin: 20px auto;
+}
+
+
+/*Header productos*/
+.containerClientes h1 {
+    font-weight: 800;
+    color: var(--green-color);
+    font-size: 35px;
+}
+
+.containerProductos h2 {
+    font-weight: 800;
+    color: var(--green-color);
+    font-size: 25px;
+}
+
+/*Mapa*/
+.containerMapa {
+    width: 100%;
+    height: auto;
+    padding: 5px 2%;
+    background-color: #F3F4EF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*Titulo del mapa*/
+.header h1 {
+    color: var(--green-color);
+    text-align: center;
+    font-size: 35px;
+    font-weight: 800;
+    margin: 20px 0px;
+}
+
+/*Mapa de santiago*/
+.mapa {
+    background-image: url(../../public/images/mapa.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 500px;
+}
+
+/*Contenedor nuevo del mapa y sus precios*/
+
+.containerInfoMapa {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+
+.containerInfoMapa-header h1 {
+    text-align: center;
+    font-size: 35px;
+    color: var(--green-color);
+    font-weight: 800;
+}
+
+.containerInfoMapa-body {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+/*Contenedor izquierdo*/
+.containerInfoMapa-body-izq {
+    width: 50%;
+    padding-right: 5px;
+    text-align: right;
+    font-size: 17px;
+}
+
+.containerBody-izq-p p {
+    margin: 5px 0px;
+}
+
+.containerBody-izq-p p span {
+    font-weight: bold;
+}
+
+/*wsp*/
+
+.containerBody-izq-wsp {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 25px;
+}
+
+.containerBody-izq-link-wsp {
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+}
+
+.containerBody-izq-link-wsp a {
+    text-decoration: none;
+    color: var(--green-color);
+    font-weight: bold;
+}
+
+.containerBody-izq-link-wsp a:hover {
+    text-decoration: underline 3px var(--green-color);
+    text-underline-offset: 2px;
+}
+
+/*Linea divisora*/
+
+.containerInfoMapa-body-centro {
+    width: 6px;
+    height: 100%;
+    background-color: var(--green-color);
+    border-radius: 2px;
+}
+
+/*Contenedor derecho*/
+
+.containerInfoMapa-body-der {
+    width: 50%;
+    padding-left: 5px;
+}
+
+/*body derecho*/
+
+.containerBody-der-valor {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    text-align: left;
+}
+
+.containerBody-der-valor p span {
+    font-weight: bold;
+}
+
+/*valor*/
+.containerPrecio {
+    padding-left: 2px;
+}
+
+.containerPrecio p {
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--green-color);
+}
+
+@media screen and (max-width: 600px) {
+    .containerInfoMapa-body {
+        flex-direction: column;
+    }
+
+    .containerInfoMapa-body-izq {
+        width: 100%;
+        text-align: justify;
+        padding-right: 0px;
+    }
+
+    .containerBody-izq-wsp {
+        justify-content: space-between;
+    }
+
+    .containerInfoMapa-body-centro {
+        width: 100%;
+        height: 6px;
+        margin: 10px 0px;
+    }
+
+    .containerInfoMapa-body-der {
+        width: 100%;
+        text-align: justify;
+        padding-left: 0px;
+    }
+
+}
+
+@media screen and (max-width: 1040px) {
+    .containerProductos {
+        flex-direction: column;
+    }
+}

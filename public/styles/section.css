@@ -1,70 +1,22 @@
-:root{
-    --white-color: #fff;
-    --cream-color: #eee;
-    --dark-color: #252525;
-    --green-color: #0d5a48;
-    --violet-color: #6709a9;
-}
-
-section{
-    /*height: 100dvh;*/
+section {
     height: 756px;
     padding: 20px 3%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(var(--white-color), var(--cream-color), var(--cream-color));
+    background: linear-gradient(to bottom, var(--white-color) 0%, var(--white-color) 50%, var(--cream-color) 100%);
     overflow: hidden;
     position: relative;
 }
 
-/*.containerSection::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background: linear-gradient( var(--white-color), var(--cream-color), var(--cream-color));
-}*/
-
-@media (max-width: 1024px){
-    section{
+@media (max-width: 1024px) {
+    section {
         height: auto;
     }
 }
 
-/*@media(min-width: 1854px){
-    section{
-        height: 1750px;
-    }
-}
-*/
-
-/*
-@media (max-width: 1360px) {
-    
-    section{
-        padding: 20px 5%;
-    }
-
-}
-
-@media (max-width: 510px) {
-    section{
-        padding: 20px 2%;
-    }
-}
-
-@media (min-width: 1610px) {
-    section{
-        padding: 20px 20%;
-    }
-}*/
-
 /*Carta de seccion*/
-.containerSection{
+.containerSection {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,13 +24,13 @@ section{
     border-radius: 4px;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
     max-width: 100%;
-    height: 478px;
     overflow: hidden;
     margin: auto auto;
+    background-color: var(--white-color);
 }
 
 
-.containerSection-left{
+.containerSection-left {
     width: 50%;
     height: 100%;
     display: flex;
@@ -89,7 +41,7 @@ section{
     padding: 20px 10px;
 }
 
-.containerSection-left h1{
+.containerSection-left h1 {
     font-size: 30px;
     font-weight: 800;
     color: var(--green-color);
@@ -98,12 +50,14 @@ section{
     text-align: center;
 }
 
-.containerSection-left p{
-    font-size: 1.4em;
+.containerSection-left p {
+    font-size: 17px;
     margin-top: 2%;
+    padding: 5px;
+    line-height: 1.5;
 }
 
-.containerSection-right{
+.containerSection-right {
     width: 50%;
     height: 100%;
     text-align: center;
@@ -111,36 +65,31 @@ section{
     border-radius: 4px 0 0 10px;
 }
 
-.img-bg{
+.img-bg {
     max-width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 @media (max-width: 1200px) {
-    .img-bg{
+    .img-bg {
         height: 100%;
     }
 }
 
-@media (max-width: 1140px){
-    .containerSection-left{
+@media (max-width: 1140px) {
+    .containerSection-left {
         text-align: left;
         line-height: 1.3;
     }
 
-    .containerSection-left h1{
+    .containerSection-left h1 {
         font-size: 25px;
-    }
-
-    .containerSection-left p{
-        font-size: 1.4em;
-        padding: 20px 10px;
     }
 }
 
-@media (max-width: 890px){
-    .containerSection{
+@media (max-width: 890px) {
+    .containerSection {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -148,33 +97,34 @@ section{
         height: 100%;
     }
 
-    .containerSection-left{
-        height: 50%;
+    .containerSection-left {
         width: 100%;
     }
 
-    .containerSection-right{
+    .containerSection-right {
         width: 100%;
         text-align: center;
         margin-top: 20px;
     }
 
-    .img-bg{
+    .img-bg {
         width: 100%;
         object-fit: cover;
+        max-height: 100%;
+
     }
 }
 
-@media (max-width: 530px){
-    
+@media (max-width: 530px) {
 
-    .img-bg{
+
+    .img-bg {
         margin-top: 27px;
     }
 }
 
-@media (max-width: 430px){
-    .containerSection-left h1{
+@media (max-width: 430px) {
+    .containerSection-left h1 {
         text-align: center;
     }
 }

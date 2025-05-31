@@ -1,0 +1,118 @@
+.containerProduct {
+    min-height: auto;
+    background-color: var(--cream-color);
+    width: 100%;
+    padding: 20px 5%;
+}
+
+/* Contenedor con los Productos */
+.containerProduct-types,
+.containerProduct-Delivery {
+    height: auto;
+    margin: 50px 0px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Ajuste para la dirección del contenedor de abastecimientos */
+.containerProduct-Delivery {
+    flex-wrap: wrap-reverse;
+}
+
+.containerTypes-left,
+.containerDelivery-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    padding: 0 5%;
+}
+
+/* Contenedores de imagenes */
+.containerTypes-right,
+.containerDelivery-left {
+    width: 50%;
+    height: 420px;
+}
+
+.containerTypes-right {
+    background-image: url(../images/frutasVerduras.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.containerDelivery-left {
+    background-image: url(../images/delivery1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+@media (max-width: 822px) {
+
+    .containerTypes-left,
+    .containerTypes-right,
+    .containerDelivery-left,
+    .containerDelivery-right {
+        width: 100%;
+    }
+
+    .containerTypes-left,
+    .containerDelivery-right {
+        height: 420px;
+    }
+
+}
+
+@media (max-width: 469px) {
+
+    .containerTypes-left,
+    .containerDelivery-right {
+        padding: 0;
+    }
+}
+
+/* Titulos */
+.containerTypes-left h2,
+.containerDelivery-right h2 {
+    font-size: 35px;
+    color: var(--green-color);
+    font-weight: 800;
+}
+
+@media (max-width: 422px) {
+
+    .containerTypes-left h2,
+    .containerDelivery-right h2 {
+        font-size: 30px;
+        color: var(--green-color);
+        font-weight: 800;
+        text-align: center;
+    }
+}
+
+.containerTypes-left li,
+.containerDelivery-right li {
+    padding: 2px;
+    font-weight: 300;
+    font-size: 17px;
+}
+
+.containerTypes-left a,
+.containerDelivery-right a {
+    padding: 10px 7px;
+    background-color: var(--green-color);
+    font-size: 17px;
+    font-weight: 300;
+    text-decoration: none;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: .2s ease;
+    border: none;
+    border-radius: 5px;
+}
+
+.containerTypes-left a:hover,
+.containerDelivery-right a:hover {
+    transform: scale(1.03);
+}

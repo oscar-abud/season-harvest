@@ -1,18 +1,32 @@
 ---
-import IconGitHub from '../components/icons/github.jsx'
+import IconGitHub from "../components/icons/github.jsx";
+import IconInstagram from "../components/icons/instagram.jsx";
+import IconFacebook from "../components/icons/facebook.jsx";
 ---
 
-<link rel="stylesheet" href="/public/styles/footer.css">
+<link rel="stylesheet" href="/public/styles/footer.css" />
 
 <footer>
+  <div class="containerSocial">
+    <p>Síguenos también en nuestras redes sociales.</p>
 
-    <div class="containerFooter-body">
-        
-        <h1>Copyright © 2025 Season Harvest. Todo los derechos reservador.</h1>
-
-        <a href="https://github.com/Smett-Bayraktar" target="_blank"><IconGitHub /> GitHub del desarrolador.</a>
-
+    <div class="containerSocial-icons">
+      <a href="https://www.instagram.com/seasonharvestcl/" target="_blank">
+        <IconInstagram /> Instagram
+      </a>
+      <a
+        href="https://www.facebook.com/profile.php?id=61574804046798"
+        target="_blank"
+      >
+        <IconFacebook /> Facebook
+      </a>
     </div>
+  </div>
 
-
+  <div class="containerFooter-body">
+    <a href="https://github.com/oscar-abud" target="_blank"
+      ><IconGitHub /> GitHub del desarrolador.</a
+    >
+    <p>Copyright © 2025 Season Harvest. Todo los derechos reservador.</p>
+  </div>
 </footer>

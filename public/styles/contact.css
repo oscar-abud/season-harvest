@@ -1,13 +1,5 @@
-:root{
-    --white-color: #fff;
-    --cream-color: #f1f5f9;
-    --dark-color: #1a1a1a;
-    --green-color: #0d5a48;
-    --violet-color: #6709a9;
-}
+.containerContacto {
 
-.containerContacto{
-    
     background-size: contain;
     background-position: center;
     display: flex;
@@ -17,42 +9,43 @@
     padding: 0 20px 20px;
     justify-content: center;
     margin-top: -20px;
-    background: linear-gradient( var(--cream-color), var(--white-color),var(--white-color));
+    background-color: var(--cream-color);
 }
 
 
 
 
-.containerContacto .containerContacto-body  {
+.containerContacto .containerContacto-body {
     position: relative;
-    z-index: 2; /* Asegúrate de que el contenido esté encima de la capa */
+    z-index: 2;
+    /* Asegúrate de que el contenido esté encima de la capa */
 }
 
-@media (max-width: 1000px){
-    .containerContacto{
+@media (max-width: 1000px) {
+    .containerContacto {
         margin-top: 0;
     }
 }
 
-.containerContacto-titulo{
+.containerContacto-titulo {
     font-family: sans-serif;
     text-align: center;
     position: relative;
 }
 
-.containerContacto-titulo h1{
+.containerContacto-titulo h1 {
     font-size: 35px;
     color: var(--green-color);
     font-weight: 800;
 }
 
-.containerContacto-titulo p{
+.containerContacto-titulo p {
     font-size: 20px;
     font-weight: 300;
     margin: 10px 0 0 0;
 }
 
-.containerContacto-body{
+.containerContacto-body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,8 +54,8 @@
     margin: 20px auto;
 }
 
-@media (max-width: 751px){
-    .containerContacto-body{
+@media (max-width: 751px) {
+    .containerContacto-body {
         flex-direction: column;
         width: 100%;
     }
@@ -70,13 +63,13 @@
 
 
 
-.containerContacto-body span{
+.containerContacto-body span {
     text-align: left;
     color: var(--dark-color);
     font-size: large;
 }
 
-.containerLink{
+.containerLink {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -93,23 +86,23 @@
 }
 
 .containerLink:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     transition: transform 0.3s ease-in-out;
     text-decoration: none;
 }
 
-.containerLink h2{
+.containerLink h2 {
     font-weight: 500;
     color: var(--green-color);
     font-size: 25px;
 }
 
-@media (max-width: 500px){
-    .containerContacto-body-text p{
+@media (max-width: 751px) {
+    .containerContacto-body-text p {
         text-align: center;
     }
 
-    .containerLink{
+    .containerLink {
         text-align: center;
         gap: 10px;
         justify-content: center;
@@ -118,8 +111,8 @@
     }
 }
 
-@media (max-width: 840px){
-    .containerContacto-body{
+@media (max-width: 840px) {
+    .containerContacto-body {
         width: 100%;
     }
 }
