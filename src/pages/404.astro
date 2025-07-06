@@ -1,26 +1,20 @@
 ---
-
+import Layout from "../layouts/layout.astro";
 ---
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/public/images/logo.ico">
-    <link rel="stylesheet" href="/public/styles/404.css">
-    <title>Season Harvest</title>
-</head>
-<body>
-    
 
+<Layout
+    title="Página no encontrada!"
+    nameContent="Error 404 | Página no encontrada"
+    contenido="Ups, parece que tenemos un problema, es mejor que volvamos al inicio."
+>
     <div class="containerBody">
-
         <div class="containerBody-content">
-
             <section>
                 <h1>¡Oh no!</h1>
 
-                <p style="padding-left: 8px;">Parece que una cáscara de plátano te jugó una mala pasada.</p>
+                <p style="padding-left: 8px;">
+                    Parece que una cáscara de plátano te jugó una mala pasada.
+                </p>
                 <p>¡Rápido, pincha en el botón para regresar!</p>
 
                 <a href="/">
@@ -29,15 +23,8 @@
             </section>
 
             <aside>
-
-                <img src="/public/images/banana.png" alt="banana">
-
+                <img src="/public/images/banana.png" alt="banana" />
             </aside>
-
         </div>
-        
-
     </div>
-
-</body>
-</html>
+</Layout>
