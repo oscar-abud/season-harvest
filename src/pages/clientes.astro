@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import IconoWsp from "../components/icons/wsp.jsx";
 import CajaProducto from "../components/boxProduct.astro";
 import AgregarProducto from "../components/agregarProducto.astro";
+import Layout from "../layouts/layout.astro";
 
 //Box Familiar
 const boxFamiliar1 = [
@@ -90,125 +91,115 @@ const productos = [
 ];
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="Sección de clientes"
-      content="Productos de Verduleria y fruteria Season Harvest para nuestros clientes"
-    />
-    <link rel="icon" href="/public/images/logo.ico" />
-    <link rel="stylesheet" href="/public/styles/indexClientes.css" />
-    <title>Productos para clientes</title>
-  </head>
-  <body>
-    <div id="inicio" class="containerBody">
-      <Header />
+<Layout
+  title="Season Harvest | Clientes"
+  nameContent="Sección de clientes | Season Harvest"
+  content="Productos de Verduleria y fruteria Season Harvest para nuestros clientes"
+>
+  <div id="inicio" class="containerBody">
+    <Header />
 
-      <div class="containerClientes">
-        <h1>Productos Clientes</h1>
-        <div class="containerProductos">
-          <!-- Caja Familiar -->
-          <CajaProducto
-            title="Box Familiar"
-            tipoBox="familiar"
-            precio="43.990"
-            productos={boxFamiliar1}
-            productos2={boxFamiliar2}
-          />
-          <!-- Caja pareja -->
-          <CajaProducto
-            title="Box Pareja"
-            tipoBox="pareja"
-            precio="29.990"
-            productos={boxPareja1}
-            productos2={boxPareja2}
-          />
-          <!-- Caja Individual -->
-          <CajaProducto
-            title="Box Individual"
-            tipoBox="individual"
-            precio="22.990"
-            productos={boxIndividual1}
-            productos2={boxIndividual2}
-          />
-          <!-- Tarjeta para agregar mas productos -->
-          <AgregarProducto products={productos} />
-        </div>
+    <div class="containerClientes">
+      <h1>Productos Clientes</h1>
+      <div class="containerProductos">
+        <!-- Caja Familiar -->
+        <CajaProducto
+          title="Box Familiar"
+          tipoBox="familiar"
+          precio="43.990"
+          productos={boxFamiliar1}
+          productos2={boxFamiliar2}
+        />
+        <!-- Caja pareja -->
+        <CajaProducto
+          title="Box Pareja"
+          tipoBox="pareja"
+          precio="29.990"
+          productos={boxPareja1}
+          productos2={boxPareja2}
+        />
+        <!-- Caja Individual -->
+        <CajaProducto
+          title="Box Individual"
+          tipoBox="individual"
+          precio="22.990"
+          productos={boxIndividual1}
+          productos2={boxIndividual2}
+        />
+        <!-- Tarjeta para agregar mas productos -->
+        <AgregarProducto products={productos} />
       </div>
-
-      <div class="containerMapa">
-        <div class="header">
-          <h1>Mapa de despachos</h1>
-        </div>
-
-        <div class="mapa">
-          <!-- Imagen del mapa de santiago -->
-        </div>
-
-        <div class="containerInfoMapa">
-          <!-- Informacion del precio segun ruta -->
-          <!-- Contenedor header -->
-          <div class="containerInfoMapa-header">
-            <h1>Valores despachos</h1>
-          </div>
-
-          <!-- Contenedor de la tabla de precios -->
-          <div class="containerInfoMapa-body">
-            <div class="containerInfoMapa-body-izq">
-              <div class="containerBody-izq-p">
-                <p>Pedidos se reciben toda la semana.</p>
-                <p>Despachos <span>sólo los viernes.</span></p>
-              </div>
-              <div class="containerBody-izq-wsp">
-                <IconoWsp />
-                <div class="containerBody-izq-link-wsp">
-                  <a
-                    href="https://wa.me/+56966177010"
-                    target="_blank"
-                    rel="noopener noreferrer">+56 9 6617 7010</a
-                  >
-                  <a
-                    href="https://wa.me/+56966845560"
-                    target="_blank"
-                    rel="noopener noreferrer">+56 9 6684 5560</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="containerInfoMapa-body-centro"></div>
-            <div class="containerInfoMapa-body-der">
-              <div class="containerBody-der-valor">
-                <p><span>Dentro</span> de la circunvalación de Vespucio.</p>
-                <div class="containerPrecio">
-                  <p>$2.000</p>
-                </div>
-              </div>
-              <div class="containerBody-der-valor">
-                <p><span>Fuera</span> de la circunvalación de Vespucio.</p>
-                <div class="containerPrecio">
-                  <p>$3.500</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <Footer />
     </div>
 
-    <script type="module">
-      document.addEventListener("DOMContentLoaded", function () {
-        const e = document.getElementById("check");
-        document.querySelectorAll("nav ul li a").forEach((n) => {
-          n.addEventListener("click", () => {
-            e.checked = !1;
-          });
+    <div class="containerMapa">
+      <div class="header">
+        <h1>Mapa de despachos</h1>
+      </div>
+
+      <div class="mapa">
+        <!-- Imagen del mapa de santiago -->
+      </div>
+
+      <div class="containerInfoMapa">
+        <!-- Informacion del precio segun ruta -->
+        <!-- Contenedor header -->
+        <div class="containerInfoMapa-header">
+          <h1>Valores despachos</h1>
+        </div>
+
+        <!-- Contenedor de la tabla de precios -->
+        <div class="containerInfoMapa-body">
+          <div class="containerInfoMapa-body-izq">
+            <div class="containerBody-izq-p">
+              <p>Pedidos se reciben toda la semana.</p>
+              <p>Despachos <span>sólo los viernes.</span></p>
+            </div>
+            <div class="containerBody-izq-wsp">
+              <IconoWsp />
+              <div class="containerBody-izq-link-wsp">
+                <a
+                  href="https://wa.me/+56966177010"
+                  target="_blank"
+                  rel="noopener noreferrer">+56 9 6617 7010</a
+                >
+                <a
+                  href="https://wa.me/+56966845560"
+                  target="_blank"
+                  rel="noopener noreferrer">+56 9 6684 5560</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="containerInfoMapa-body-centro"></div>
+          <div class="containerInfoMapa-body-der">
+            <div class="containerBody-der-valor">
+              <p><span>Dentro</span> de la circunvalación de Vespucio.</p>
+              <div class="containerPrecio">
+                <p>$2.000</p>
+              </div>
+            </div>
+            <div class="containerBody-der-valor">
+              <p><span>Fuera</span> de la circunvalación de Vespucio.</p>
+              <div class="containerPrecio">
+                <p>$3.500</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Footer />
+  </div>
+
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+      const e = document.getElementById("check");
+      document.querySelectorAll("nav ul li a").forEach((n) => {
+        n.addEventListener("click", () => {
+          e.checked = !1;
         });
       });
-    </script>
-  </body>
-</html>
+    });
+  </script>
+</Layout>

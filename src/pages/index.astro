@@ -7,54 +7,45 @@ import Contact from "../components/Contacto.astro";
 
 import Footer from "../components/Footer.astro";
 import Products from "../components/Products.astro";
+import Layout from "../layouts/layout.astro";
 ---
 
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Verduleria Season Harvest, Desde verduras a frutas y con entrega a la puerta de tu hogar."
+<Layout
+  title="Season Harvest"
+  nameContent="Bienvenido a Season Harvest verduleria"
+  content="Verduleria Season Harvest, Desde verduras a frutas y con entrega a la puerta de tu hogar."
+>
+  <div id="inicio" class="containerBody">
+    <Header />
+
+    <Section
+      color="#fff"
+      titulo="Bienvenido a Season Harvest"
+      texto="En Season Harvest, nos especializamos en la distribución de frutas, verduras e insumos esenciales para cocinas de restaurantes y hoteles. Nuestro compromiso es ofrecer productos de primera calidad con un servicio eficiente y entregas siempre puntuales."
+      texto2="Sabemos que en la industria gastronómica, la frescura y la disponibilidad de los ingredientes marcan la diferencia. Por eso, contamos con una logística ágil y confiable, asegurando que cada pedido llegue a tiempo y en las mejores condiciones."
+      texto3="Confía en Season Harvest como tu proveedor estratégico y garantiza el abastecimiento de tu cocina con productos seleccionados y un servicio de excelencia. ¡Contáctanos y descubre la diferencia!"
+      imagen="/public/images/delivery.jpg"
+      altImg="Fondo1"
     />
-    <link rel="stylesheet" href="/public/styles/index.css" />
-    <link rel="icon" href="/public/images/logo.ico" />
-    <title>Season Harvest</title>
-  </head>
-  <body>
-    <div id="inicio" class="containerBody">
-      <Header />
 
-      <Section
-        color="#fff"
-        titulo="Bienvenido a Season Harvest"
-        texto="En Season Harvest, nos especializamos en la distribución de frutas, verduras e insumos esenciales para cocinas de restaurantes y hoteles. Nuestro compromiso es ofrecer productos de primera calidad con un servicio eficiente y entregas siempre puntuales."
-        texto2="Sabemos que en la industria gastronómica, la frescura y la disponibilidad de los ingredientes marcan la diferencia. Por eso, contamos con una logística ágil y confiable, asegurando que cada pedido llegue a tiempo y en las mejores condiciones."
-        texto3="Confía en Season Harvest como tu proveedor estratégico y garantiza el abastecimiento de tu cocina con productos seleccionados y un servicio de excelencia. ¡Contáctanos y descubre la diferencia!"
-        imagen="/public/images/delivery.jpg"
-        altImg="Fondo1"
-      />
+    <Products />
 
-      <Products />
+    <Aside />
 
-      <Aside />
+    <Contact />
 
-      <Contact />
+    <Footer />
+  </div>
 
-      <Footer />
-    </div>
-
-    <script type="module">
-      document.addEventListener("DOMContentLoaded", function () {
-        //Menu hamburguesa
-        const e = document.getElementById("check");
-        document.querySelectorAll("nav ul li a").forEach((n) => {
-          n.addEventListener("click", () => {
-            e.checked = !1;
-          });
+  <script type="module">
+    document.addEventListener("DOMContentLoaded", function () {
+      //Menu hamburguesa
+      const e = document.getElementById("check");
+      document.querySelectorAll("nav ul li a").forEach((n) => {
+        n.addEventListener("click", () => {
+          e.checked = !1;
         });
       });
-    </script>
-  </body>
-</html>
+    });
+  </script>
+</Layout>
