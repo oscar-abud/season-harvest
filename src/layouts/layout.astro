@@ -1,0 +1,26 @@
+---
+interface Props {
+    title: string;
+    content: string;
+    nameContent: string;
+}
+
+const { title, content, nameContent } = Astro.props;
+import SHIcon from "../../public/images/logo.ico";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name={nameContent} content={content} />
+        <link rel="icon" href={SHIcon} type="image/x-icon" />
+        <link rel="stylesheet" href="/public/styles/index.css" />
+        <link rel="stylesheet" href="/public/styles/indexClientes.css" />
+        <title>{title}</title>
+    </head>
+    <body>
+        <slot />
+    </body>
+</html>
