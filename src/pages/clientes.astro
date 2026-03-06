@@ -8,7 +8,7 @@ import Layout from "../layouts/layout.astro";
 import type { ProductClient } from '../types/products'
 
 // Fetch
-const response = await fetch('http://localhost:8080/productos-clientes');
+const response = await fetch('http://localhost:8080/productos-clientes?state=true');
 const boxs: ProductClient[] = await response.json();
 
 console.log(boxs.map(box => box.name))
@@ -40,7 +40,7 @@ const productos = [
     <Header showImg={false} />
 
     <div class="containerClientes">
-      <h1>Productos Clientes</h1>
+      <h1>Productos para Clientes</h1>
       <div class="containerProductos">
         <!-- Caja de Productos -->
         {
