@@ -5,74 +5,13 @@ import IconoWsp from "../components/icons/wsp.jsx";
 import CajaProducto from "../components/boxProduct.astro";
 import AgregarProducto from "../components/agregarProducto.astro";
 import Layout from "../layouts/layout.astro";
+import type { ProductClient } from '../types/products'
 
-//Box Familiar
-const boxFamiliar1 = [
-  { amount: "2", unit: "kg", name: "Kiwi" },
-  { amount: "2", unit: "kg", name: "Manzana Roja" },
-  { amount: "2", unit: "kg", name: "Plátano" },
-  { amount: "2", unit: "un", name: "Ajo" },
-  { amount: "2", unit: "kg", name: "Cebolla Blanca" },
-  { amount: "1/4", unit: "kg", name: "Cilantro" },
-  { amount: "1", unit: "un", name: "Lechuga Costina" },
-  { amount: "2", unit: "kg", name: "Limón" },
-  { amount: "1", unit: "kg", name: "Palta" },
-];
+// Fetch
+const response = await fetch('http://localhost:8080/productos-clientes');
+const boxs: ProductClient[] = await response.json();
 
-const boxFamiliar2 = [
-  { amount: "3", unit: "kg", name: "Papa" },
-  { amount: "1", unit: "un", name: "Pimentón Rojo" },
-  { amount: "1", unit: "un", name: "Pimentón Verde" },
-  { amount: "2", unit: "kg", name: "Tomate" },
-  { amount: "1", unit: "un", name: "Lechuga Escarola" },
-  { amount: "1", unit: "un", name: "Brocoli" },
-  { amount: "1", unit: "kg", name: "Zanahoria" },
-  { amount: "2", unit: "trozos", name: "Zapallo Camote" },
-];
-
-//Box Pareja
-const boxPareja1 = [
-  { amount: "1", unit: "kg", name: "Kiwi" },
-  { amount: "1", unit: "kg", name: "Manzana Roja" },
-  { amount: "1", unit: "kg", name: "Plátano" },
-  { amount: "1", unit: "un", name: "Ajo" },
-  { amount: "1", unit: "kg", name: "Cebolla Blanca" },
-  { amount: "1/4", unit: "kg", name: "Cilantro" },
-  { amount: "1", unit: "un", name: "Lechuga Costina" },
-  { amount: "1", unit: "kg", name: "Limón" },
-];
-
-const boxPareja2 = [
-  { amount: "1", unit: "kg", name: "Palta" },
-  { amount: "2", unit: "kg", name: "Papa" },
-  { amount: "1", unit: "un", name: "Pimentón Rojo" },
-  { amount: "1", unit: "un", name: "Pimentón Verde" },
-  { amount: "1", unit: "kg", name: "Tomate" },
-  { amount: "1/2", unit: "kg", name: "Zanahoria" },
-  { amount: "1", unit: "trozo", name: "Zapallo Camote" },
-];
-
-//Box Individual
-const boxIndividual1 = [
-  { amount: "1/2", unit: "kg", name: "Kiwi" },
-  { amount: "1/2", unit: "kg", name: "Manzana Roja" },
-  { amount: "1/2", unit: "kg", name: "Plátano" },
-  { amount: "1", unit: "un", name: "Ajo" },
-  { amount: "1/2", unit: "kg", name: "Cebolla Blanca" },
-  { amount: "1/4", unit: "kg", name: "Cilantro" },
-  { amount: "1", unit: "un", name: "Lechuga Costina" },
-  { amount: "1/2", unit: "kg", name: "Limón" },
-];
-
-const boxIndividual2 = [
-  { amount: "1/2", unit: "kg", name: "Palta" },
-  { amount: "1", unit: "kg", name: "Papa" },
-  { amount: "1", unit: "un", name: "Pimentón Rojo" },
-  { amount: "1", unit: "un", name: "Pimentón Verde" },
-  { amount: "1/2", unit: "kg", name: "Tomate" },
-  { amount: "1/2", unit: "kg", name: "Zanahoria" },
-  { amount: "1", unit: "trozo", name: "Zapallo Camote" },
-];
+console.log(boxs.map(box => box.name))
 
 // Para agregar productos aparte a las cajas
 const productos = [
@@ -103,30 +42,17 @@ const productos = [
     <div class="containerClientes">
       <h1>Productos Clientes</h1>
       <div class="containerProductos">
-        <!-- Caja Familiar -->
-        <CajaProducto
-          title="Box Familiar"
-          tipoBox="familiar"
-          precio="43.990"
-          productos={boxFamiliar1}
-          productos2={boxFamiliar2}
-        />
-        <!-- Caja pareja -->
-        <CajaProducto
-          title="Box Pareja"
-          tipoBox="pareja"
-          precio="29.990"
-          productos={boxPareja1}
-          productos2={boxPareja2}
-        />
-        <!-- Caja Individual -->
-        <CajaProducto
-          title="Box Individual"
-          tipoBox="individual"
-          precio="22.990"
-          productos={boxIndividual1}
-          productos2={boxIndividual2}
-        />
+        <!-- Caja de Productos -->
+        {
+          boxs.map(box => (
+            <CajaProducto
+              title={box.name}
+              tipoBox={box.name}
+              precio={box.price}
+              productos={box.productos}
+            />
+          ))
+        }
         <!-- Tarjeta para agregar mas productos -->
         <AgregarProducto products={productos} />
       </div>
