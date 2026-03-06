@@ -3,46 +3,35 @@ import IconoEmail from "../components/icons/email.jsx";
 import Iconowsp from "../components/icons/wsp.jsx";
 ---
 
-<link rel="stylesheet" href="/public/styles/contact.css" />
-
-<main>
-  <div id="contacto" class="containerContacto">
-    <div class="containerContacto-titulo">
-      <h1>Contacto</h1>
-      <p>¿Tienes preguntas? Aqui estamos para ayudar.</p>
-    </div>
-    <div class="containerContacto-body">
-      <a
-        href="mailto:seasonharvest99@gmail.com"
-        target="_blank"
-        class="containerLink"
-      >
-        <IconoEmail />
-        <h2>Email</h2>
-        <span>seasonharvest99@gmail.com</span>
-      </a>
-    </div>
-
-    <div class="containerContacto-body">
-      <a
-        href="https://wa.me/+56966177010"
-        target="_blank"
-        class="containerLink"
-      >
-        <Iconowsp />
-        <h2>WhatsApp</h2>
-        <span>+56 (9) 6617 7010</span>
-      </a>
-
-      <a
-        href="https://wa.me/+56966845560"
-        target="_blank"
-        class="containerLink"
-      >
-        <Iconowsp />
-        <h2>WhatsApp</h2>
-        <span>+56 (9) 6684 5560</span>
-      </a>
-    </div>
+<section id="contacto" class="contacto">
+  <div class="contacto-header">
+    <h2>Contacto</h2>
+    <p>¿Tienes preguntas? Aquí estamos para ayudar.</p>
   </div>
-</main>
+
+  <div class="contacto-cards">
+    <a href="mailto:seasonharvest99@gmail.com" target="_blank" class="contact-card">
+      <div class="card-icon-wrap email-bg">
+        <IconoEmail />
+      </div>
+      <p class="card-label">Correo electrónico</p>
+      <span class="card-value">seasonharvest99@gmail.com</span>
+    </a>
+
+    <a href="https://wa.me/+56966177010" target="_blank" class="contact-card">
+      <div class="card-icon-wrap wsp-bg">
+        <Iconowsp />
+      </div>
+      <p class="card-label">WhatsApp</p>
+      <span class="card-value">+56 (9) 6617 7010</span>
+    </a>
+
+    <a href="https://wa.me/+56966845560" target="_blank" class="contact-card">
+      <div class="card-icon-wrap wsp-bg">
+        <Iconowsp />
+      </div>
+      <p class="card-label">WhatsApp</p>
+      <span class="card-value">+56 (9) 6684 5560</span>
+    </a>
+  </div>
+</section>
