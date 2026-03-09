@@ -13,8 +13,7 @@ const boxs: ProductClient[] = await response.json();
 console.log(boxs.map(box => box.name));
 
 const res = await fetch('http://localhost:8080/productos-extras');
-const productExtra: ProductExtraClient[] = await res.json();
-console.log('productosExtras', productExtra.map(p => p.productosExtras));
+const productExtra: ProductExtraClient = await res.json();
 ---
 
 <Layout
@@ -41,7 +40,7 @@ console.log('productosExtras', productExtra.map(p => p.productosExtras));
           ))
         }
         <!-- Tarjeta para agregar mas productos -->
-        <AgregarProducto products={productExtra[0]} />
+        <AgregarProducto products={productExtra} />
       </div>
     </div>
 
