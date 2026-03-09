@@ -4,30 +4,48 @@ import IconInstagram from "../components/icons/instagram.jsx";
 import IconFacebook from "../components/icons/facebook.jsx";
 ---
 
-<link rel="stylesheet" href="/public/styles/footer.css" />
-<link rel="stylesheet" href="styles/footer.css" />
+<footer class="footer">
 
-<footer>
-  <div class="containerSocial">
-    <p>Síguenos también en nuestras redes sociales.</p>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo-text">Season Harvest</span>
+      <p class="footer-tagline">Verduras y frutas frescas directo a tu puerta, cada viernes.</p>
+    </div>
 
-    <div class="containerSocial-icons">
-      <a href="https://www.instagram.com/seasonharvestcl/" target="_blank">
-        <IconInstagram /> Instagram
-      </a>
-      <a
-        href="https://www.facebook.com/profile.php?id=61574804046798"
-        target="_blank"
-      >
-        <IconFacebook /> Facebook
-      </a>
+    <!-- <div class="footer-links">
+      <p class="footer-links-label">Navegación</p>
+      <nav class="footer-nav">
+        <a href="/#inicio">Inicio</a>
+        <a href="/#Producto">Productos</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/#contacto">Contacto</a>
+        <a href="/clientes">Para Clientes</a>
+      </nav>
+    </div> -->
+
+    <div class="footer-social">
+      <p class="footer-links-label">Redes sociales</p>
+      <div class="footer-social-icons">
+        <a href="https://www.instagram.com/seasonharvestcl/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          <IconInstagram />
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61574804046798" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+          <IconFacebook />
+          <span>Facebook</span>
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="containerFooter-body">
-    <a href="https://github.com/oscar-abud" target="_blank"
-      ><IconGitHub /> GitHub del desarrolador.</a
-    >
-    <p>Copyright © {new Date().getFullYear()} Season Harvest. Todo los derechos reservador.</p>
+  <div class="footer-divider"></div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© {new Date().getFullYear()} Season Harvest. Todos los derechos reservados.</p>
+    <a href="https://github.com/oscar-abud" target="_blank" rel="noopener noreferrer" class="footer-dev">
+      <IconGitHub />
+      <span>Desarrollado por oscar-abud</span>
+    </a>
   </div>
+
 </footer>
