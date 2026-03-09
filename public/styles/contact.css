@@ -3,6 +3,8 @@
     background-color: var(--white-color);
     padding: 4rem 1.5rem;
     font-family: sans-serif;
+    justify-content: center;
+    gap: 120px;
 }
 
 .contacto-header {
