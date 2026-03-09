@@ -5,13 +5,16 @@ import IconoWsp from "../components/icons/wsp.jsx";
 import CajaProducto from "../components/boxProduct.astro";
 import AgregarProducto from "../components/agregarProducto.astro";
 import Layout from "../layouts/layout.astro";
-import type { ProductClient } from '../types/products'
+import type { ProductClient, ProductExtraClient } from '../types/products'
 
 // Fetch
 const response = await fetch('http://localhost:8080/productos-clientes?state=true');
 const boxs: ProductClient[] = await response.json();
+console.log(boxs.map(box => box.name));
 
-console.log(boxs.map(box => box.name))
+const res = await fetch('http://localhost:8080/productos-extras');
+const productExtra: ProductExtraClient[] = await res.json();
+console.log('productosExtras', productExtra.map(p => p.productosExtras))
 
 // Para agregar productos aparte a las cajas
 const productos = [
@@ -54,7 +57,7 @@ const productos = [
           ))
         }
         <!-- Tarjeta para agregar mas productos -->
-        <AgregarProducto products={productos} />
+        <AgregarProducto products={productExtra[0]} />
       </div>
     </div>
 
