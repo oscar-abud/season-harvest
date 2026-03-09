@@ -14,23 +14,7 @@ console.log(boxs.map(box => box.name));
 
 const res = await fetch('http://localhost:8080/productos-extras');
 const productExtra: ProductExtraClient[] = await res.json();
-console.log('productosExtras', productExtra.map(p => p.productosExtras))
-
-// Para agregar productos aparte a las cajas
-const productos = [
-  { name: "Ajo de Cabeza", unit: "un", price: 390 },
-  { name: "Albahaca", unit: "60 gr", price: 1290 },
-  { name: "Mata de apio", unit: "un", price: 1990 },
-  { name: "Berenjena", unit: "un", price: 890 },
-  { name: "Betarraga", unit: "3 un", price: 1590 },
-  { name: "Brócoli", unit: "un", price: 1990 },
-  { name: "Bruselas", unit: "500 gr", price: 2990 },
-  { name: "Cebolla Morada", unit: "kg", price: 1990 },
-  { name: "Cebollín", unit: "3 un", price: 1490 },
-  { name: "Choclo", unit: "3 un", price: 2490 },
-  { name: "Ciboulette", unit: "un", price: 490 },
-  { name: "Cilantro", unit: "200 gr", price: 1490 },
-];
+console.log('productosExtras', productExtra.map(p => p.productosExtras));
 ---
 
 <Layout
