@@ -38,7 +38,7 @@ body {
 
 /* ── Sección productos clientes ── */
 .containerClientes {
-    background: linear-gradient(160deg, #f0f7f4 0%, var(--cream-color) 100%);
+    background: linear-gradient(var(--white-color), var(--cream-color));
     padding: 3.5rem 3%;
 }
 
@@ -87,7 +87,7 @@ body {
 
 /* ── Sección mapa ── */
 .containerMapa {
-    background: var(--white-color);
+    background: linear-gradient(var(--cream-color), var(--white-color));
     padding: 4rem 3%;
     display: flex;
     flex-direction: column;
