@@ -1,17 +1,29 @@
 ---
 import IconoEmail from "../components/icons/email.jsx";
 import Iconowsp from "../components/icons/wsp.jsx";
+import type { Phone, TimeWork } from "../types/contact";
 
-// Estático por ahora — reemplazar con fetch al back cuando esté listo
-const ubicacion = {
-  texto: "Santiago, Región Metropolitana",
-  mapsUrl: "https://maps.google.com/?q=Santiago,Chile",
-};
+// Fetch
+const response = await fetch('http://localhost:8080/contacto');
+const contactData = await response.json();
 
-const horario = {
-  dias: "Lunes a Viernes",
-  desde: "09:00",
-  hasta: "18:00",
+// Si es un Singleton, tomamos el primer (y único) contacto
+const mainContact = contactData[0];
+const phoneNumber = mainContact ? mainContact.phone : [];
+
+// Agregamos una validación simple para que no rompa si la API falla
+if (!mainContact) {
+  console.error("No se pudo cargar la información de contacto");
+}
+
+const formatChileanNumber = (num: number) => {
+  const s = num.toString();
+  // Asumiendo que el número viene como 912345678 (9 dígitos)
+  const first = s.slice(0, 1);   // El "9"
+  const mid = s.slice(1, 5);     // Los siguientes 4 dígitos
+  const last = s.slice(5);       // Los últimos 4 dígitos
+  
+  return `+56 (${first}) ${mid} ${last}`;
 };
 ---
 
@@ -39,32 +51,28 @@ const horario = {
         </div>
       </a>
 
-      <a href="https://wa.me/+56966177010" target="_blank" rel="noopener noreferrer" class="contacto-item">
-        <div class="contacto-item-icon icon-wsp">
-          <Iconowsp />
-        </div>
-        <div class="contacto-item-body">
-          <span class="contacto-item-label">WhatsApp</span>
-          <span class="contacto-item-value">+56 (9) 6617 7010</span>
-        </div>
-      </a>
-
-      <a href="https://wa.me/+56966845560" target="_blank" rel="noopener noreferrer" class="contacto-item">
-        <div class="contacto-item-icon icon-wsp">
-          <Iconowsp />
-        </div>
-        <div class="contacto-item-body">
-          <span class="contacto-item-label">WhatsApp</span>
-          <span class="contacto-item-value">+56 (9) 6684 5560</span>
-        </div>
-      </a>
+      {
+        phoneNumber.map((phone: Phone) => (
+          /* Nota: En wa.me es mejor no usar el "+" ni espacios, solo números */
+          <a href={`https://wa.me/56${phone.phone}`} target="_blank" rel="noopener noreferrer" class="contacto-item">
+            <div class="contacto-item-icon icon-wsp">
+              <Iconowsp />
+            </div>
+            <div class="contacto-item-body">
+              <span class="contacto-item-label">WhatsApp - {phone.name}</span>
+              <span class="contacto-item-value">{formatChileanNumber(phone.phone)}</span>
+            </div>
+          </a>
+        ))
+      }
     </div>
 
     <!-- Columna derecha: información -->
     <div class="contacto-col">
       <p class="contacto-col-label">Información</p>
 
-      <a href={ubicacion.mapsUrl} target="_blank" rel="noopener noreferrer" class="contacto-item">
+      {/* UBICACIÓN DINÁMICA */}
+      <a href={`https://www.google.com/maps/search/${encodeURIComponent(mainContact.direction)}`} target="_blank" rel="noopener noreferrer" class="contacto-item">
         <div class="contacto-item-icon icon-green">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d5a48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 10c0 6-8 13-8 13S4 16 4 10a8 8 0 1 1 16 0z"/>
@@ -73,10 +81,11 @@ const horario = {
         </div>
         <div class="contacto-item-body">
           <span class="contacto-item-label">Ubicación</span>
-          <span class="contacto-item-value">{ubicacion.texto}</span>
+          <span class="contacto-item-value">{mainContact.direction}</span>
         </div>
       </a>
 
+      {/* HORARIO DINÁMICO */}
       <div class="contacto-item">
         <div class="contacto-item-icon icon-amber">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef9a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -86,8 +95,14 @@ const horario = {
         </div>
         <div class="contacto-item-body">
           <span class="contacto-item-label">Horario de atención</span>
-          <span class="contacto-item-value">{horario.dias}</span>
-          <span class="contacto-item-sub">{horario.desde} – {horario.hasta}</span>
+          {mainContact.timeWork.map((tw: TimeWork) => (
+            <>
+              <span class="contacto-item-value">{tw.days}</span>
+              {tw.schedule.map((s) => (
+                <span class="contacto-item-sub">{s.open} – {s.close}</span>
+              ))}
+            </>
+          ))}
         </div>
       </div>
     </div>
