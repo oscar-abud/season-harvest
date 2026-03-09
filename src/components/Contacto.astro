@@ -1,37 +1,97 @@
 ---
 import IconoEmail from "../components/icons/email.jsx";
 import Iconowsp from "../components/icons/wsp.jsx";
+
+// Estático por ahora — reemplazar con fetch al back cuando esté listo
+const ubicacion = {
+  texto: "Santiago, Región Metropolitana",
+  mapsUrl: "https://maps.google.com/?q=Santiago,Chile",
+};
+
+const horario = {
+  dias: "Lunes a Viernes",
+  desde: "09:00",
+  hasta: "18:00",
+};
 ---
 
 <section id="contacto" class="contacto">
+
   <div class="contacto-header">
-    <h2>Contacto</h2>
-    <p>¿Tienes preguntas? Aquí estamos para ayudar.</p>
+    <span class="contacto-eyebrow">Contacto</span>
+    <h2>¿Hablamos? <span>Estamos aquí.</span></h2>
+    <p>Escríbenos por cualquiera de estos medios y te responderemos a la brevedad.</p>
   </div>
 
-  <div class="contacto-cards">
-    <a href="mailto:seasonharvest99@gmail.com" target="_blank" class="contact-card">
-      <div class="card-icon-wrap email-bg">
-        <IconoEmail />
-      </div>
-      <p class="card-label">Correo electrónico</p>
-      <span class="card-value">seasonharvest99@gmail.com</span>
-    </a>
+  <div class="contacto-panel">
 
-    <a href="https://wa.me/+56966177010" target="_blank" class="contact-card">
-      <div class="card-icon-wrap wsp-bg">
-        <Iconowsp />
-      </div>
-      <p class="card-label">WhatsApp</p>
-      <span class="card-value">+56 (9) 6617 7010</span>
-    </a>
+    <!-- Columna izquierda: canales de comunicación -->
+    <div class="contacto-col">
+      <p class="contacto-col-label">Comunícate</p>
 
-    <a href="https://wa.me/+56966845560" target="_blank" class="contact-card">
-      <div class="card-icon-wrap wsp-bg">
-        <Iconowsp />
+      <a href="mailto:seasonharvest99@gmail.com" target="_blank" class="contacto-item">
+        <div class="contacto-item-icon icon-green">
+          <IconoEmail />
+        </div>
+        <div class="contacto-item-body">
+          <span class="contacto-item-label">Correo electrónico</span>
+          <span class="contacto-item-value">seasonharvest99@gmail.com</span>
+        </div>
+      </a>
+
+      <a href="https://wa.me/+56966177010" target="_blank" rel="noopener noreferrer" class="contacto-item">
+        <div class="contacto-item-icon icon-wsp">
+          <Iconowsp />
+        </div>
+        <div class="contacto-item-body">
+          <span class="contacto-item-label">WhatsApp</span>
+          <span class="contacto-item-value">+56 (9) 6617 7010</span>
+        </div>
+      </a>
+
+      <a href="https://wa.me/+56966845560" target="_blank" rel="noopener noreferrer" class="contacto-item">
+        <div class="contacto-item-icon icon-wsp">
+          <Iconowsp />
+        </div>
+        <div class="contacto-item-body">
+          <span class="contacto-item-label">WhatsApp</span>
+          <span class="contacto-item-value">+56 (9) 6684 5560</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Columna derecha: información -->
+    <div class="contacto-col">
+      <p class="contacto-col-label">Información</p>
+
+      <a href={ubicacion.mapsUrl} target="_blank" rel="noopener noreferrer" class="contacto-item">
+        <div class="contacto-item-icon icon-green">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0d5a48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 13-8 13S4 16 4 10a8 8 0 1 1 16 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="contacto-item-body">
+          <span class="contacto-item-label">Ubicación</span>
+          <span class="contacto-item-value">{ubicacion.texto}</span>
+        </div>
+      </a>
+
+      <div class="contacto-item">
+        <div class="contacto-item-icon icon-amber">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef9a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="contacto-item-body">
+          <span class="contacto-item-label">Horario de atención</span>
+          <span class="contacto-item-value">{horario.dias}</span>
+          <span class="contacto-item-sub">{horario.desde} – {horario.hasta}</span>
+        </div>
       </div>
-      <p class="card-label">WhatsApp</p>
-      <span class="card-value">+56 (9) 6684 5560</span>
-    </a>
+    </div>
+
   </div>
+
 </section>
