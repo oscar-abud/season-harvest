@@ -1,42 +1,73 @@
+/* ══════════════════════════════════════
+   Sección Nosotros (Aside)
+══════════════════════════════════════ */
 aside {
+    background: linear-gradient(160deg, #f0f7f4 0%, var(--cream-color) 100%);
+    padding: 5rem 3%;
     display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    padding-top: 80px;
-    justify-content: space-evenly;
-    background-color: var(--cream-color);
-    position: relative;
-    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
 }
 
-aside::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: var(--cream-color);
-    /*background-image: url(/public/images/fondo1.jpg);
-    background-position: center;
-    background-size: contain;
-    filter: blur(8px);*/
+/* ── Encabezado ── */
+.aside-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
 }
 
-@media (max-width: 700px) {
-    aside {
-        padding: 20px 0;
+.aside-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--green-color);
+    background: rgba(13, 90, 72, 0.08);
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+.aside-header h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--dark-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.aside-header p {
+    font-size: 0.95rem;
+    color: #888;
+    margin: 0;
+    max-width: 380px;
+}
+
+/* ── Grid de cards ── */
+.aside-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+@media (max-width: 800px) {
+    .aside-cards {
+        grid-template-columns: 1fr;
+        max-width: 420px;
     }
 }
 
-.acercaDe {
-    position: absolute;
-    display: grid;
-    place-items: center;
-    margin: 20px 0;
-    font-weight: 800;
-    color: var(--green-color);
-    font-size: 35px;
-    z-index: 2;
+@media (max-width: 480px) {
+    aside {
+        padding: 3rem 4%;
+    }
+
+    .aside-header h2 {
+        font-size: 1.7rem;
+    }
 }

@@ -1,130 +1,111 @@
+/* ══════════════════════════════════════
+   Sección Inicio (Bienvenido)
+══════════════════════════════════════ */
 section {
-    height: 756px;
-    padding: 20px 3%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: linear-gradient(to bottom, var(--white-color) 0%, var(--white-color) 50%, var(--cream-color) 100%);
+    padding: 4rem 3%;
+    background: linear-gradient(160deg, #f0f7f4 0%, var(--cream-color) 100%);
     overflow: hidden;
-    position: relative;
 }
 
-@media (max-width: 1024px) {
-    section {
-        height: auto;
-    }
-}
-
-/*Carta de seccion*/
 .containerSection {
     display: flex;
-    justify-content: center;
     align-items: center;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
-    max-width: 100%;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--white-color);
+    border-radius: 1.6rem;
+    box-shadow:
+        0 20px 60px rgba(13, 90, 72, 0.08),
+        0 4px 16px rgba(0, 0, 0, 0.05);
     overflow: hidden;
-    margin: auto auto;
-    background-color: var(--white-color);
 }
 
-
+/* ── Columna de texto ── */
 .containerSection-left {
-    width: 50%;
-    height: 100%;
+    width: 55%;
+    padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    text-align: justify;
-    padding: 20px 10px;
+    gap: 1rem;
 }
 
 .containerSection-left h1 {
-    font-size: 30px;
-    font-weight: 800;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: var(--dark-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.containerSection-left h1 span {
     color: var(--green-color);
-    margin: 0 0 30px;
+}
+
+.section-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
-    text-align: center;
+    color: var(--green-color);
+    background: rgba(13, 90, 72, 0.08);
+    padding: 4px 14px;
+    border-radius: 20px;
+    width: fit-content;
 }
 
 .containerSection-left p {
-    font-size: 17px;
-    margin-top: 2%;
-    padding: 5px;
-    line-height: 1.5;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #555;
+    margin: 0;
+    text-align: left;
 }
 
+.section-divider {
+    width: 48px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--green-color), var(--mustard-color));
+    border-radius: 2px;
+    margin: 0.2rem 0;
+}
+
+/* ── Columna de imagen ── */
 .containerSection-right {
-    width: 50%;
-    height: 100%;
-    text-align: center;
-    border: none;
-    border-radius: 4px 0 0 10px;
+    width: 45%;
+    align-self: stretch;
+    min-height: 420px;
+    flex-shrink: 0;
 }
 
 .img-bg {
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
-@media (max-width: 1200px) {
-    .img-bg {
-        height: 100%;
-    }
-}
-
-@media (max-width: 1140px) {
-    .containerSection-left {
-        text-align: left;
-        line-height: 1.3;
-    }
-
-    .containerSection-left h1 {
-        font-size: 25px;
-    }
-}
-
+/* ── Responsive ── */
 @media (max-width: 890px) {
     .containerSection {
-        display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        width: 100%;
-        height: 100%;
+        gap: 0;
     }
 
     .containerSection-left {
         width: 100%;
+        padding: 2rem 1.5rem;
     }
 
     .containerSection-right {
         width: 100%;
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .img-bg {
-        width: 100%;
-        object-fit: cover;
-        max-height: 100%;
-
+        min-height: 260px;
     }
 }
 
-@media (max-width: 530px) {
-
-
-    .img-bg {
-        margin-top: 27px;
-    }
-}
-
-@media (max-width: 430px) {
+@media (max-width: 480px) {
     .containerSection-left h1 {
-        text-align: center;
+        font-size: 1.5rem;
     }
 }

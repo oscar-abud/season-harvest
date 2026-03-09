@@ -1,9 +1,8 @@
 ---
-const {title, text} = Astro.props;
+const {title, text, icon} = Astro.props;
 ---
-<link rel="stylesheet" href="/public/styles/card.css">
-
 <div class="containerCard">
-    <h1>{title}</h1>
+    <div class="card-icon-circle">{icon}</div>
+    <h3>{title}</h3>
     <p>{text}</p>
 </div>
