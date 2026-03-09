@@ -6,6 +6,7 @@ import CajaProducto from "../components/boxProduct.astro";
 import AgregarProducto from "../components/agregarProducto.astro";
 import Layout from "../layouts/layout.astro";
 import type { ProductClient, ProductExtraClient } from '../types/products'
+import type { Phone } from "../types/contact";
 
 // Fetch
 const response = await fetch('http://localhost:8080/productos-clientes?state=true');
@@ -14,6 +15,22 @@ console.log(boxs.map(box => box.name));
 
 const res = await fetch('http://localhost:8080/productos-extras');
 const productExtra: ProductExtraClient = await res.json();
+
+const responseContacto = await fetch('http://localhost:8080/contacto');
+const contactData = await responseContacto.json();
+
+// Si es un Singleton, tomamos el primer (y único) contacto
+const mainContact = contactData[0];
+const phoneNumber = mainContact ? mainContact.phone : [];
+
+const formatChileanNumber = (num: number) => {
+  const s = num.toString();
+  const first = s.slice(0, 1);
+  const mid = s.slice(1, 5);
+  const last = s.slice(5);
+  
+  return `+56 (${first}) ${mid} ${last}`;
+};
 ---
 
 <Layout
@@ -25,10 +42,14 @@ const productExtra: ProductExtraClient = await res.json();
   <div id="inicio" class="containerBody">
     <Header showImg={false} />
 
+    <!-- ── Sección productos ── -->
     <div class="containerClientes">
-      <h1>Productos para Clientes</h1>
+      <div class="clientes-header">
+        <span class="clientes-eyebrow">Boxes disponibles</span>
+        <h1>Productos para Clientes</h1>
+        <p>Elige el box que mejor se adapte a tu cocina. Despacho todos los viernes.</p>
+      </div>
       <div class="containerProductos">
-        <!-- Caja de Productos -->
         {
           boxs.map(box => (
             <CajaProducto
@@ -39,66 +60,91 @@ const productExtra: ProductExtraClient = await res.json();
             />
           ))
         }
-        <!-- Tarjeta para agregar mas productos -->
         <AgregarProducto products={productExtra} />
       </div>
     </div>
 
+    <!-- ── Sección mapa ── -->
     <div class="containerMapa">
-      <div class="header">
-        <h1>Mapa de despachos</h1>
+
+      <div class="mapa-header">
+        <span class="clientes-eyebrow">Cobertura</span>
+        <h2>Mapa de despachos</h2>
+        <p>Revisá si estamos en tu zona y conoce los valores de envío.</p>
       </div>
 
-      <div class="mapa">
-        <!-- Imagen del mapa de santiago -->
-      </div>
+      <div class="mapa"></div>
 
-      <div class="containerInfoMapa">
-        <!-- Informacion del precio segun ruta -->
-        <!-- Contenedor header -->
-        <div class="containerInfoMapa-header">
-          <h1>Valores despachos</h1>
-        </div>
+      <div class="mapa-info-panel">
 
-        <!-- Contenedor de la tabla de precios -->
-        <div class="containerInfoMapa-body">
-          <div class="containerInfoMapa-body-izq">
-            <div class="containerBody-izq-p">
-              <p>Pedidos se reciben toda la semana.</p>
-              <p>Despachos <span>sólo los viernes.</span></p>
+        <div class="mapa-info-col">
+          <p class="mapa-col-label">Horario y pedidos</p>
+
+          <div class="mapa-info-item">
+            <div class="mapa-info-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0d5a48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
             </div>
-            <div class="containerBody-izq-wsp">
+            <div>
+              <span class="mapa-info-label">Recepción de pedidos</span>
+              <span class="mapa-info-value">Toda la semana</span>
+            </div>
+          </div>
+
+          <div class="mapa-info-item">
+            <div class="mapa-info-icon mapa-icon-amber">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef9a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+              </svg>
+            </div>
+            <div>
+              <span class="mapa-info-label">Día de despacho</span>
+              <span class="mapa-info-value mapa-value-amber">Solo los viernes</span>
+            </div>
+          </div>
+
+          <div class="mapa-info-item mapa-info-item--link">
+            <div class="mapa-info-icon mapa-icon-wsp">
               <IconoWsp />
-              <div class="containerBody-izq-link-wsp">
-                <a
-                  href="https://wa.me/+56966177010"
-                  target="_blank"
-                  rel="noopener noreferrer">+56 9 6617 7010</a
-                >
-                <a
-                  href="https://wa.me/+56966845560"
-                  target="_blank"
-                  rel="noopener noreferrer">+56 9 6684 5560</a
-                >
-              </div>
             </div>
-          </div>
-          <div class="containerInfoMapa-body-centro"></div>
-          <div class="containerInfoMapa-body-der">
-            <div class="containerBody-der-valor">
-              <p><span>Dentro</span> de la circunvalación de Vespucio.</p>
-              <div class="containerPrecio">
-                <p>$2.000</p>
-              </div>
-            </div>
-            <div class="containerBody-der-valor">
-              <p><span>Fuera</span> de la circunvalación de Vespucio.</p>
-              <div class="containerPrecio">
-                <p>$3.500</p>
-              </div>
+            <div class="mapa-wsp-links">
+              <span class="mapa-info-label">Contacto</span>
+              {
+                phoneNumber.map((phone: Phone) => (
+                  <a href={`https://wa.me/56${phone.phone}`} target="_blank" rel="noopener noreferrer">{formatChileanNumber(phone.phone)}</a>
+                ))
+              }
             </div>
           </div>
         </div>
+
+        <div class="mapa-info-divider"></div>
+
+        <div class="mapa-info-col">
+          <p class="mapa-col-label">Valores de despacho</p>
+
+          <div class="mapa-precio-card">
+            <div class="mapa-precio-zona">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0d5a48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 13-8 13S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span><strong>Dentro</strong> de Vespucio</span>
+            </div>
+            <span class="mapa-precio-valor">$2.000</span>
+          </div>
+
+          <div class="mapa-precio-card">
+            <div class="mapa-precio-zona">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef9a18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 10c0 6-8 13-8 13S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span><strong>Fuera</strong> de Vespucio</span>
+            </div>
+            <span class="mapa-precio-valor mapa-precio-amber">$3.500</span>
+          </div>
+        </div>
+
       </div>
     </div>
 

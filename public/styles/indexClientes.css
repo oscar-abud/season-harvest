@@ -36,198 +36,254 @@ body {
     max-width: 1140px;
 }
 
-/*Productos para el cliente*/
+/* ── Sección productos clientes ── */
 .containerClientes {
+    background: linear-gradient(160deg, #f0f7f4 0%, var(--cream-color) 100%);
+    padding: 3.5rem 3%;
+}
+
+.clientes-header {
     text-align: center;
-    height: auto;
-    background: linear-gradient(to bottom, var(--white-color) 0%, var(--white-color) 50%, var(--cream-color) 100%);
-    padding: 10px 5px;
-}
-
-/*Contenedores de productos*/
-.containerProductos {
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: .8rem;
-    margin: 20px auto;
-}
-
-
-/*Header productos*/
-.containerClientes h1 {
-    font-weight: 800;
-    color: var(--green-color);
-    font-size: 35px;
-}
-
-.containerProductos h2 {
-    font-weight: 800;
-    color: var(--green-color);
-    font-size: 25px;
-}
-
-/*Mapa*/
-.containerMapa {
-    width: 100%;
-    height: auto;
-    padding: 5px 2%;
-    background-color: #F3F4EF;
+    margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    gap: 0.6rem;
 }
 
-/*Titulo del mapa*/
-.header h1 {
+.clientes-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
     color: var(--green-color);
-    text-align: center;
-    font-size: 35px;
-    font-weight: 800;
-    margin: 20px 0px;
+    background: rgba(13, 90, 72, 0.08);
+    padding: 4px 14px;
+    border-radius: 20px;
 }
 
-/*Mapa de santiago*/
+.clientes-header h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--dark-color);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.clientes-header p {
+    font-size: 0.95rem;
+    color: #888;
+    margin: 0;
+}
+
+.containerProductos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 1.2rem;
+    margin: 0 auto;
+    max-width: 1140px;
+}
+
+/* ── Sección mapa ── */
+.containerMapa {
+    background: var(--white-color);
+    padding: 4rem 3%;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.mapa-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.mapa-header h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+.mapa-header p {
+    font-size: 0.95rem;
+    color: #888;
+    margin: 0;
+}
+
 .mapa {
-    background-image: url(../../public/images/mapa.jpg);
+    background-image: url(../images/mapa.JPG);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 500px;
+    height: 480px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 1.2rem;
+    border: 1.5px solid rgba(13, 90, 72, 0.08);
 }
 
-/*Contenedor nuevo del mapa y sus precios*/
+/* ── Panel de info de despacho ── */
+.mapa-info-panel {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    max-width: 720px;
+    width: 100%;
+    background: var(--white-color);
+    border-radius: 1.4rem;
+    box-shadow:
+        0 16px 50px rgba(13, 90, 72, 0.08),
+        0 4px 14px rgba(0, 0, 0, 0.05);
+    border: 1.5px solid rgba(13, 90, 72, 0.07);
+    overflow: hidden;
+}
 
-.containerInfoMapa {
+.mapa-info-col {
+    padding: 2rem 1.8rem;
     display: flex;
     flex-direction: column;
-    margin: 20px 0px;
+    gap: 1.4rem;
 }
 
-.containerInfoMapa-header h1 {
-    text-align: center;
-    font-size: 35px;
-    color: var(--green-color);
-    font-weight: 800;
+.mapa-col-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #bbb;
+    margin: 0;
 }
 
-.containerInfoMapa-body {
+.mapa-info-divider {
+    width: 1.5px;
+    background: rgba(13, 90, 72, 0.07);
+    align-self: stretch;
+}
+
+/* ── Items de info ── */
+.mapa-info-item {
     display: flex;
-    width: 60%;
+    align-items: flex-start;
+    gap: 0.8rem;
+}
+
+.mapa-info-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(13, 90, 72, 0.07);
+    display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    margin: auto;
+    flex-shrink: 0;
 }
 
-/*Contenedor izquierdo*/
-.containerInfoMapa-body-izq {
-    width: 50%;
-    padding-right: 5px;
-    text-align: right;
-    font-size: 17px;
+.mapa-icon-amber { background: rgba(239, 154, 24, 0.1); }
+.mapa-icon-wsp   { background: rgba(37, 211, 102, 0.1); }
+
+.mapa-info-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 2px;
 }
 
-.containerBody-izq-p p {
-    margin: 5px 0px;
+.mapa-info-value {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--dark-color);
 }
 
-.containerBody-izq-p p span {
-    font-weight: bold;
+.mapa-value-amber {
+    color: var(--mustard-color);
 }
 
-/*wsp*/
-
-.containerBody-izq-wsp {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    gap: 25px;
-}
-
-.containerBody-izq-link-wsp {
+.mapa-wsp-links {
     display: flex;
     flex-direction: column;
-    font-size: 17px;
+    gap: 2px;
 }
 
-.containerBody-izq-link-wsp a {
-    text-decoration: none;
+.mapa-wsp-links a {
+    font-size: 0.88rem;
+    font-weight: 700;
     color: var(--green-color);
-    font-weight: bold;
+    text-decoration: none;
+    transition: opacity 0.15s;
 }
 
-.containerBody-izq-link-wsp a:hover {
-    text-decoration: underline 3px var(--green-color);
-    text-underline-offset: 2px;
-}
+.mapa-wsp-links a:hover { opacity: 0.7; }
 
-/*Linea divisora*/
-
-.containerInfoMapa-body-centro {
-    width: 6px;
-    height: 100%;
-    background-color: var(--green-color);
-    border-radius: 2px;
-}
-
-/*Contenedor derecho*/
-
-.containerInfoMapa-body-der {
-    width: 50%;
-    padding-left: 5px;
-}
-
-/*body derecho*/
-
-.containerBody-der-valor {
+/* ── Cards de precios ── */
+.mapa-precio-card {
     display: flex;
     align-items: center;
-    font-size: 17px;
-    text-align: left;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: 1.5px solid rgba(13, 90, 72, 0.08);
+    background: var(--cream-color);
+    transition: border-color 0.15s;
 }
 
-.containerBody-der-valor p span {
-    font-weight: bold;
+.mapa-precio-card:hover {
+    border-color: rgba(13, 90, 72, 0.2);
 }
 
-/*valor*/
-.containerPrecio {
-    padding-left: 2px;
+.mapa-precio-zona {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.88rem;
+    color: var(--dark-color);
 }
 
-.containerPrecio p {
-    font-weight: 800;
-    font-size: 17px;
+.mapa-precio-valor {
+    font-size: 1.15rem;
+    font-weight: 900;
     color: var(--green-color);
+    white-space: nowrap;
 }
 
-@media screen and (max-width: 600px) {
-    .containerInfoMapa-body {
-        flex-direction: column;
+.mapa-precio-amber { color: var(--mustard-color); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .containerProductos {
+        grid-template-columns: 1fr;
     }
 
-    .containerInfoMapa-body-izq {
+    .mapa-info-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .mapa-info-divider {
         width: 100%;
-        text-align: justify;
-        padding-right: 0px;
+        height: 1.5px;
     }
 
-    .containerBody-izq-wsp {
-        justify-content: space-between;
+    .clientes-header h1 {
+        font-size: 1.7rem;
     }
 
-    .containerInfoMapa-body-centro {
-        width: 100%;
-        height: 6px;
-        margin: 10px 0px;
+    .mapa-header h2 {
+        font-size: 1.7rem;
     }
 
-    .containerInfoMapa-body-der {
-        width: 100%;
-        text-align: justify;
-        padding-left: 0px;
+    .mapa {
+        height: 300px;
     }
-
 }
 
 @media screen and (max-width: 1040px) {

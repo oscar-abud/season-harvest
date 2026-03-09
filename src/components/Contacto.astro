@@ -18,10 +18,9 @@ if (!mainContact) {
 
 const formatChileanNumber = (num: number) => {
   const s = num.toString();
-  // Asumiendo que el número viene como 912345678 (9 dígitos)
-  const first = s.slice(0, 1);   // El "9"
-  const mid = s.slice(1, 5);     // Los siguientes 4 dígitos
-  const last = s.slice(5);       // Los últimos 4 dígitos
+  const first = s.slice(0, 1);
+  const mid = s.slice(1, 5);
+  const last = s.slice(5);
   
   return `+56 (${first}) ${mid} ${last}`;
 };
