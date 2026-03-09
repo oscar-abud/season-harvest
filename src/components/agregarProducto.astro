@@ -1,29 +1,23 @@
 ---
-interface Producto {
-    name: string;
-    unit: string;
-    price: number;
-}
-const { products = [] } = Astro.props;
+import type { ProductExtra } from '../types/products'
+const { products = {} } = Astro.props;
 
 import WspIcon from "../components/icons/wsp";
 ---
 
 <div class="agregarProduct">
     <div class="agregarProduct-header">
-        <h2>Para agregar</h2>
-        <p>
-            Elige y añade los productos extra que desees a tu <span>box</span> favorito.
-        </p>
+        <h2>{products.name}</h2>
+        <p>{products.description}</p>
     </div>
     <div class="agregarProduct-body">
         <div class="column">
             <ul>
                 {
-                    products.map((item: Producto) => (
+                    products.productosExtras?.map((item: ProductExtra) => (
                         <div class="lista">
                             <li>
-                                {item.name} ( {item.unit} )
+                                {item.name} ( {item.quantity}  {item.type} )
                             </li>
                             <p>${item.price}</p>
                         </div>
