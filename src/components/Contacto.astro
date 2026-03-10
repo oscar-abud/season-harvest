@@ -8,8 +8,8 @@ const response = await fetch('http://localhost:8080/contacto');
 const contactData = await response.json();
 
 // Si es un Singleton, tomamos el primer (y único) contacto
-const mainContact = contactData[0];
-const phoneNumber = mainContact ? mainContact.phone : [];
+const mainContact = contactData;
+const phoneNumber = mainContact ? mainContact.phone : '-';
 
 // Agregamos una validación simple para que no rompa si la API falla
 if (!mainContact) {
