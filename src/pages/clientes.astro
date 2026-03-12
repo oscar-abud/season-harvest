@@ -23,8 +23,9 @@ const responseContacto = await fetch(`${url}/${CONST_ENDPOINT_CONTACTOS}`);
 const contactData = await responseContacto.json();
 
 // Si es un Singleton, tomamos el primer (y único) contacto
-const mainContact = contactData[0];
-const phoneNumber = mainContact ? mainContact.phone : [];
+const mainContact = contactData;
+const phoneNumber:Phone[] = mainContact ? mainContact.phone : '-';
+const phoneNumberFiltered = phoneNumber.filter(f => f.name.toUpperCase() === 'VENTAS');
 
 const formatChileanNumber = (num: number) => {
   const s = num.toString();
@@ -114,7 +115,7 @@ const formatChileanNumber = (num: number) => {
             <div class="mapa-wsp-links">
               <span class="mapa-info-label">Contacto</span>
               {
-                phoneNumber.map((phone: Phone) => (
+                phoneNumberFiltered.map((phone) => (
                   <a href={`https://wa.me/56${phone.phone}`} target="_blank" rel="noopener noreferrer">{formatChileanNumber(phone.phone)}</a>
                 ))
               }
