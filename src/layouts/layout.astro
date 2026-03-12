@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { title, nameContent, contenido, url } = Astro.props;
-import SHIcon from "../../public/images/logo.ico";
+const SHIcon = "/images/logo.ico";
 ---
 
 <!doctype html>
@@ -22,12 +22,14 @@ import SHIcon from "../../public/images/logo.ico";
         <meta property="og:url" content={url} />
         <meta
             property="og:image"
-            content='"../../public/images/delivery.jpg"'
+            content='"/images/delivery.jpg"'
         />
         <meta name="theme-color" content="#0d5a48" />
 
         <link rel="icon" href={SHIcon} type="image/x-icon" />
 
+        <!-- Css de Header/Nav -->
+        <link rel="stylesheet" href="/styles/header.css" />
         <!-- Css de Index -->
         <link rel="stylesheet" href="/styles/index.css" />
         <!-- Css de Clientes -->
