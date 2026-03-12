@@ -2,9 +2,12 @@
 import IconoEmail from "../components/icons/email.jsx";
 import Iconowsp from "../components/icons/wsp.jsx";
 import type { Phone, TimeWork } from "../types/contact";
+import { CONST_ENDPOINT_CONTACTOS } from '../services/constats';
+
+let url: string = import.meta.env.API_URL
 
 // Fetch
-const response = await fetch('http://localhost:8080/contacto');
+const response = await fetch(`${url}/${CONST_ENDPOINT_CONTACTOS}`);
 const contactData = await response.json();
 
 // Si es un Singleton, tomamos el primer (y único) contacto
