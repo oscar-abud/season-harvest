@@ -7,9 +7,12 @@ import AgregarProducto from "../components/agregarProducto.astro";
 import Layout from "../layouts/layout.astro";
 import type { ProductClient, ProductExtraClient } from '../types/products'
 import type { Phone } from "../types/contact";
+import { CONST_ENDPOINT_PRODUCTOS_CLIENTES } from '../services/constats';
+
+let url = import.meta.env.API_URL
 
 // Fetch
-const response = await fetch('http://localhost:8080/productos-clientes?state=true');
+const response = await fetch(`${url}/${CONST_ENDPOINT_PRODUCTOS_CLIENTES}`);
 const boxs: ProductClient[] = await response.json();
 console.log(boxs.map(box => box.name));
 

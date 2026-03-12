@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# folders
+services/
+
 # generated types
 .astro/
 
