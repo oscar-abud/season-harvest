@@ -9,7 +9,7 @@ import type { ProductClient, ProductExtraClient } from '../types/products'
 import type { Phone } from "../types/contact";
 import { CONST_ENDPOINT_PRODUCTOS_CLIENTES, CONST_ENDPOINT_CONTACTOS, CONST_ENDPOINT_PRODUCTOS_EXTRAS } from '../services/constats';
 
-let url = import.meta.env.API_URL
+let url: string = import.meta.env.API_URL
 
 // Fetch
 const response = await fetch(`${url}/${CONST_ENDPOINT_PRODUCTOS_CLIENTES}`);
