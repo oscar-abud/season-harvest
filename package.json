@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.1.6",
+    "@astrojs/vercel": "^9.0.5",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",

@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import IconoWsp from "../components/icons/wsp.jsx";
-import CajaProducto from "../components/boxProduct.astro";
+import CajaProducto from "../components/boxProduct.astro"
 import AgregarProducto from "../components/agregarProducto.astro";
 import Layout from "../layouts/layout.astro";
 import type { ProductClient, ProductExtraClient } from '../types/products'
@@ -12,7 +12,7 @@ import { CONST_ENDPOINT_PRODUCTOS_CLIENTES, CONST_ENDPOINT_CONTACTOS, CONST_ENDP
 let url: string = import.meta.env.API_URL
 
 // Fetch
-const response = await fetch(`${url}/${CONST_ENDPOINT_PRODUCTOS_CLIENTES}`);
+const response = await fetch(`${url}/${CONST_ENDPOINT_PRODUCTOS_CLIENTES}?state=true`);
 const boxs: ProductClient[] = await response.json();
 console.log(boxs.map(box => box.name));
 
